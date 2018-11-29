@@ -1,0 +1,15 @@
+<div fxLayout="row" style="margin-top: 16px;">
+  <div fxFlexFill>
+    <mat-card>
+      <mat-card-content>
+        <p style="font-weight: bold; font-size: 1.2em;">{{number}} {{question['question']}}</p>
+        <mat-list>
+          <mat-list-item *ngFor="let option of question?.options; let i = index">
+            <span style="text-transform: uppercase; font-weight: bold; margin-right: 8px;">{{options[i]}}:</span>
+            {{option}}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

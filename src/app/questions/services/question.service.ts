@@ -1,19 +1,17 @@
 import {Injectable} from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Question} from '../interfaces/question';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {Observable} from 'rxjs';
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 
 @Injectable()
 export class QuestionService {
-  questions$;
+  private questions$: AngularFirestoreCollection<Question>;
 
   constructor(private afd: AngularFirestore) {
     this.questions$ = this.getQuestions();
   }
 
   getQuestions() {
-    return this.afd.collection('questions');
+    return this.afd.collection<Question>('questions');
   }
 
   createQuestion(question: any) {

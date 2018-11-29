@@ -1,0 +1,38 @@
+<div fxLayout="row" style="padding-top: 16px;">
+  <div fxFlex="60" fxFlex.xs="100" fxFlexOffset="20" fxFlexOffset.xs="0">
+    <mat-card>
+      <form novalidate #questionForm="ngForm" (ngSubmit)="submit(questionForm)">
+        <mat-card-content>
+          <p>
+            <mat-form-field class="full-width">
+              <textarea matInput name="question" placeholder="Question" ngModel rows="4" required></textarea>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Option A" name="option_a" ngModel required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Option B" name="option_b" ngModel required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Option C" name="option_c" ngModel required>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Option D" name="option_d" ngModel required>
+            </mat-form-field>
+          </p>
+        </mat-card-content>
+        <mat-card-actions style="padding-bottom: 24px;">
+          <button mat-raised-button color="primary" [disabled]="questionForm.invalid" style="float: right; margin-right: 24px;">Save</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>
