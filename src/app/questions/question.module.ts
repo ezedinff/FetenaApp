@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -50,10 +50,12 @@ const routes: Routes = [
     MatCardModule,
     MatIconModule,
     MatListModule,
+    MatDialogModule,
     FlexLayoutModule,
     RouterModule.forChild(routes),
     AngularFireAuthModule
   ],
-  providers: [QuestionService]
+  providers: [QuestionService],
+  entryComponents: [AddQuestion]
 })
 export class QuestionModule { }
