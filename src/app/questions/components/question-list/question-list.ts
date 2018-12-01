@@ -16,9 +16,19 @@ export class QuestionList implements OnInit {
   ngOnInit(): void {
     this.questions$ = this.questionService.getQuestions().valueChanges();
   }
-  openDialog(actionType: string) {
-    this.matDialog.open(AddQuestion, {
-      data: {action: actionType},
-      width: '400px', maxWidth: '100vw', height: 'auto', disableClose: true});
+  openDialog(actionType) {
+    if (actionType['action']) {
+      if (actionType['action'] !== 'delete') {
+        this.matDialog.open(AddQuestion, {
+          data: {action: actionType['action'], question: actionType['question']},
+          width: '400px', maxWidth: '100vw', height: 'auto', disableClose: true});
+      }
+    } else {
+      if (actionType !== 'delete') {
+        this.matDialog.open(AddQuestion, {
+          data: {action: actionType},
+          width: '400px', maxWidth: '100vw', height: 'auto', disableClose: true});
+      }
+    }
   }
 }

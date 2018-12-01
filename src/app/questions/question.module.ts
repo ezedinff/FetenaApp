@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule,
   MatCardModule, MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatMenuModule,
   MatToolbarModule
 } from '@angular/material';
 import {QuestionContainer} from './containers/question-container/question.container';
@@ -26,10 +26,6 @@ const routes: Routes = [
     component: QuestionContainer,
     children: [
         {
-          path: 'add/:id',
-          component: AddQuestion
-        },
-        {
           path: 'list',
           component: QuestionList
         },
@@ -42,7 +38,7 @@ const routes: Routes = [
   exports: [QuestionContainer, RouterModule],
   imports: [
     CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -51,6 +47,7 @@ const routes: Routes = [
     MatIconModule,
     MatListModule,
     MatDialogModule,
+    MatMenuModule,
     FlexLayoutModule,
     RouterModule.forChild(routes),
     AngularFireAuthModule

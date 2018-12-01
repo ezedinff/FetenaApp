@@ -2,7 +2,17 @@
   <div fxFlexFill>
     <mat-card>
       <mat-card-content>
-        <p style="font-weight: bold; font-size: 1.2em;">{{number}} {{question['question']}}</p>
+        <div fxLayout="row">
+          <div fxFlex style="font-weight: bold; font-size: 1.2em;">{{number}} {{question['question']}}</div>
+          <div fxFlex>
+            <mat-menu #appMenu="matMenu">
+              <button mat-menu-item (click)="sendAction('edit')"><mat-icon>edit</mat-icon>&nbsp;Edit</button>
+              <button mat-menu-item (click)="sendAction('delete')"><mat-icon>delete</mat-icon>&nbsp;Delete</button>
+            </mat-menu>
+            <button mat-icon-button [matMenuTriggerFor]="appMenu" style="float: right"><mat-icon>more_vert</mat-icon></button>
+          </div>
+        </div>
+
         <mat-list>
           <mat-list-item *ngFor="let option of question?.options; let i = index">
             <span style="text-transform: uppercase; font-weight: bold; margin-right: 8px;">{{options[i]}}:</span>
