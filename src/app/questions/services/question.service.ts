@@ -17,5 +17,9 @@ export class QuestionService {
   createQuestion(question: any) {
     this.questions$.add(question);
   }
+  deleteQuestion(question) {
+    const q = this.afd.doc(`questions/${question.$key}`);
+    console.log(q, question.$key);
+  }
 
 }

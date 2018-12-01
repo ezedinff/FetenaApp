@@ -22,6 +22,8 @@ export class QuestionList implements OnInit {
         this.matDialog.open(AddQuestion, {
           data: {action: actionType['action'], question: actionType['question']},
           width: '400px', maxWidth: '100vw', height: 'auto', disableClose: true});
+      } else {
+        this.questionService.deleteQuestion(actionType['question']);
       }
     } else {
       if (actionType !== 'delete') {

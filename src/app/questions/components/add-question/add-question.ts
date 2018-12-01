@@ -23,17 +23,17 @@ export class AddQuestion implements OnInit{
   constructor(private questionService: QuestionService,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder) {}
-  submit(form) {
+  submit() {
     const data: Question = {
-      question: form.value.question,
+      question: this.questionForm.value.question,
       options: [
-        form.value.option_a,
-        form.value.option_b,
-        form.value.option_c,
-        form.value.option_d
+        this.questionForm.value.option_a,
+        this.questionForm.value.option_b,
+        this.questionForm.value.option_c,
+        this.questionForm.value.option_d
       ]
     };
-    this.questionService.createQuestion(data);
+    if (this.data['action'] === 'create') { this.questionService.createQuestion(data); }
   }
   createForm() {
     this.questionForm = this.fb.group(this.questionControls);
