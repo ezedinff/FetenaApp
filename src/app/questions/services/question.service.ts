@@ -7,15 +7,14 @@ export class QuestionService {
   private questions$: AngularFirestoreCollection<Question>;
 
   constructor(private afd: AngularFirestore) {
-    this.questions$ = this.getQuestions();
   }
 
-  getQuestions() {
-    return this.afd.collection<Question>('questions');
+  getQuestions(subject_name) {
+    return this.afd.collection<Question>(`/subjects/${subject_name}/questions`);
   }
 
-  createQuestion(question: any) {
-    this.questions$.add(question);
+  createQuestion(question: any, subject_name) {
+    this.getQuestions(`${subject_name}`).add(question);
   }
   deleteQuestion(question) {
     const q = this.afd.doc(`questions/${question.$key}`);

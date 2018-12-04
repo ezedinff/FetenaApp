@@ -1,0 +1,24 @@
+<mat-toolbar fxLayout="row" color="primary" class="mat-elevation-z4">
+  <span style="text-transform: capitalize;" fxFlex>{{title}}</span>
+  <div fxFlex>
+    <button   mat-icon-button mat-dialog-close
+              style="float: right !important; position: relative; cursor: pointer;">
+      <mat-icon > close</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div fxLayout="row">
+  <div fxFlexFill>
+    <form novalidate [formGroup]="subjectForm" style="padding: 24px;" (ngSubmit)="submit()">
+      <p>
+        <mat-form-field class="full-width">
+          <input matInput formControlName="name" placeholder="Subject title" required>
+        </mat-form-field>
+      </p>
+      <button mat-raised-button color="primary" [disabled]="subjectForm.invalid || subjectForm.pristine" style="float: right; margin-right: 24px;">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+    </form>
+  </div>
+</div>

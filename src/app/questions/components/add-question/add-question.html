@@ -35,7 +35,11 @@
         <input matInput placeholder="Option D" formControlName="option_d"  required>
       </mat-form-field>
     </p>
-    <button mat-raised-button color="primary" [disabled]="questionForm.invalid || questionForm.pristine" style="float: right; margin-right: 24px;">Save</button>
+    <button mat-raised-button color="primary"
+            [disabled]="questionForm.invalid || questionForm.pristine" style="float: right; margin-right: 24px;">
+      <mat-icon>save</mat-icon>
+      Save
+    </button>
     </form>
   </div>
 </div>

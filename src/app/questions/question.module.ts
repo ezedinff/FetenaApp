@@ -20,22 +20,24 @@ import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AddQuestion} from './components/add-question/add-question';
 import {QuestionList} from './components/question-list/question-list';
 import {QuestionListItem} from './components/question-list-item/question-list-item';
+import {SubjectContainer} from './containers/subject-container/subject.container';
+import {SubjectService} from './services/subject.service';
+import {AddSubjectComponent} from './components/add-subject/add-subject.component';
 const routes: Routes = [
   {
     path: '',
-    component: QuestionContainer,
+    component: SubjectContainer,
     children: [
         {
-          path: 'list',
+          path: 'list/:name',
           component: QuestionList
-        },
-        {path: '', redirectTo: 'list', pathMatch: 'full'},
+        }
       ]
   }
 ];
 @NgModule({
-  declarations: [QuestionContainer, AddQuestion, QuestionList, QuestionListItem],
-  exports: [QuestionContainer, RouterModule],
+  declarations: [SubjectContainer, QuestionContainer, AddSubjectComponent, AddQuestion, QuestionList, QuestionListItem],
+  exports: [SubjectContainer, QuestionContainer, RouterModule],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -52,7 +54,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AngularFireAuthModule
   ],
-  providers: [QuestionService],
-  entryComponents: [AddQuestion]
+  providers: [QuestionService, SubjectService],
+  entryComponents: [AddQuestion, AddSubjectComponent]
 })
 export class QuestionModule { }

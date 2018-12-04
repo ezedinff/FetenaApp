@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="mat-elevation-z5">Fetena App</mat-toolbar>
+<div fxLayout="row" style="padding: 16px;">
+  <div fxFlex="20">
+    <mat-toolbar fxLayout="row">Subject List
+    <div fxFlex fxLayoutAlign="end">
+      <button mat-button (click)="openDialog('create')">
+        <mat-icon>add</mat-icon>&nbsp;
+        Subject
+      </button>
+    </div>
+    </mat-toolbar>
+    <mat-list style="margin-top: 32px; padding-top: 0; border-top: 1px solid #b6b6b6;">
+      <mat-list-item *ngFor="let subject of subjects$ | async" style="border: 1px solid #b6b6b6; padding: 0; border-top: none;">
+        <button mat-button
+                type="button"
+                style="height: 100%; width: 100%; text-align: left; text-transform: capitalize;"
+                routerLink="/list/{{subject?.name}}"
+                [routerLinkActive]="['']" [ngClass]="rla.isActive?'active':''" #rla="routerLinkActive"
+        >{{subject?.name}}</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div fxFlex="80">
+    <router-outlet></router-outlet>
+  </div>
+</div>

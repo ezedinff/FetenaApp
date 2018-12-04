@@ -33,7 +33,7 @@ export class AddQuestion implements OnInit{
         this.questionForm.value.option_d
       ]
     };
-    if (this.data['action'] === 'create') { this.questionService.createQuestion(data); }
+    if (this.data['action'] === 'create') { this.questionService.createQuestion(data, this.data['subject_name']); }
   }
   createForm() {
     this.questionForm = this.fb.group(this.questionControls);
