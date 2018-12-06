@@ -23,6 +23,8 @@ import {QuestionListItem} from './components/question-list-item/question-list-it
 import {SubjectContainer} from './containers/subject-container/subject.container';
 import {SubjectService} from './services/subject.service';
 import {AddSubjectComponent} from './components/add-subject/add-subject.component';
+import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import {AngularFireStorage} from '@angular/fire/storage';
 const routes: Routes = [
   {
     path: '',
@@ -31,6 +33,10 @@ const routes: Routes = [
         {
           path: 'list/:name',
           component: QuestionList
+        },
+        {
+          path: 'list/:name/add/:id',
+          component: AddQuestion
         }
       ]
   }
@@ -52,9 +58,10 @@ const routes: Routes = [
     MatMenuModule,
     FlexLayoutModule,
     RouterModule.forChild(routes),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
-  providers: [QuestionService, SubjectService],
+  providers: [QuestionService, SubjectService, AngularFireStorage],
   entryComponents: [AddQuestion, AddSubjectComponent]
 })
 export class QuestionModule { }

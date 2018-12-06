@@ -7,7 +7,7 @@ import {Subject} from '../../interfaces/subject';
 @Component({
   selector: 'add-subject-component',
   templateUrl: './add-subject.component.html',
-  styles: ['::ng-deep .mat-dialog-container{ padding: 0 0 5em; overflow: hidden; }']
+  styles: ['::ng-deep .mat-dialog-container{ padding: 0 0 5em !important; overflow: hidden !important; }']
 })
 export class AddSubjectComponent implements OnInit{
   title = 'Create New Subject';

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {environment} from '../environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 @NgModule({
@@ -18,6 +18,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFirestoreModule
   ],
   providers: [],

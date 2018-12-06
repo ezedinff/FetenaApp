@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-content>
         <div fxLayout="row">
-          <div fxFlex style="font-weight: bold; font-size: 1.2em;">{{number}} {{question['question']}}</div>
+          <div fxFlex style="font-weight: bold; font-size: 1.2em;">{{number}} <span [froalaView]="question['question']"></span></div>
           <div fxFlex>
             <mat-menu #appMenu="matMenu">
               <button mat-menu-item (click)="sendAction('edit')"><mat-icon>edit</mat-icon>&nbsp;Edit</button>
